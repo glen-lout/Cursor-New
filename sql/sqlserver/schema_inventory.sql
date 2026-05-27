@@ -202,7 +202,7 @@ SELECT
     STRING_AGG(CASE WHEN ic.is_included_column = 0 THEN col.name END, ', ')
         WITHIN GROUP (ORDER BY ic.key_ordinal, ic.index_column_id) AS key_columns,
     STRING_AGG(CASE WHEN ic.is_included_column = 1 THEN col.name END, ', ')
-        WITHIN GROUP (ORDER BY ic.index_column_id) AS included_columns
+        WITHIN GROUP (ORDER BY ic.key_ordinal, ic.index_column_id) AS included_columns
 FROM sys.indexes AS idx
 INNER JOIN sys.tables AS tbl
     ON tbl.object_id = idx.object_id
