@@ -18,7 +18,7 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | foreign_keys.tsv | 5069 | foreign_key_name	parent_schema_name	parent_table_name	parent_columns	referenced_schema_name	referenced_table_name	referenced_columns	update_referential_action_desc	delete_referential_action_desc	is_disabled	is_not_trusted |
 | indexes.tsv | 8578 | schema_name	table_name	index_name	index_type	is_unique	is_primary_key	is_unique_constraint	has_filter	filter_definition	key_columns	included_columns |
 | check_constraints.tsv | 64 | schema_name	table_name	check_constraint_name	definition	is_disabled	is_not_trusted |
-| routine_parameters.tsv | 67257 | schema_name	routine_name	routine_type	parameter_id	parameter_name	data_type	character_or_binary_length	precision	scale	is_output	has_default_value	default_value |
+| routine_parameters.tsv | 80830 | schema_name	routine_name	routine_type	parameter_id	parameter_name	data_type	character_or_binary_length	precision	scale	is_output	has_default_value	default_value |
 
 ## Coverage summary
 
@@ -30,7 +30,7 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | Foreign key relationships | 5069 | 2465 parent tables, 1404 referenced tables |
 | Indexes | 8578 | 4340 tables with index rows |
 | Check constraints | 64 | 49 tables with check constraints |
-| Routine parameter rows | 67257 | 15167 distinct routines/functions with parameter metadata |
+| Routine parameter rows | 80830 | 18569 distinct routines/functions with parameter metadata |
 
 ## Schemas
 
@@ -93,43 +93,45 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 
 | Routine type | Parameter rows |
 | --- | --- |
-| SQL_INLINE_TABLE_VALUED_FUNCTION | 2021 |
-| SQL_SCALAR_FUNCTION | 1099 |
-| SQL_STORED_PROCEDURE | 63920 |
-| SQL_TABLE_VALUED_FUNCTION | 217 |
+| SQL_INLINE_TABLE_VALUED_FUNCTION | 2053 |
+| SQL_SCALAR_FUNCTION | 1352 |
+| SQL_STORED_PROCEDURE | 77165 |
+| SQL_TABLE_VALUED_FUNCTION | 260 |
 
 ### Routines by schema
 
 | Schema | Parameter rows |
 | --- | --- |
-| dbo | 65816 |
+| dbo | 79207 |
 | cdc | 1440 |
+| System.Activities.DurableInstancing | 181 |
 | cde91d87_EDI | 1 |
+| PRIME\lmenari1 | 1 |
 
 ### Most common routine parameter data types
 
 | Data type | Parameter rows |
 | --- | --- |
-| varchar | 20851 |
-| int | 11779 |
-| HVCIDdt | 9223 |
-| bit | 6260 |
-| bigint | 3951 |
-| datetime | 2961 |
-| numeric | 1660 |
-| nvarchar | 1254 |
-| NULL | 1193 |
-| datetimeoffset | 1013 |
-| binary | 979 |
-| uniqueidentifier | 848 |
-| smallint | 551 |
-| char | 464 |
-| tinyint | 427 |
-| SXAGNStringDtTbl | 416 |
-| date | 365 |
-| SXAGNBigintTbl | 317 |
-| decimal | 286 |
-| sysname | 262 |
+| varchar | 24281 |
+| int | 13969 |
+| HVCIDdt | 10551 |
+| bit | 8098 |
+| bigint | 5191 |
+| datetime | 3528 |
+| numeric | 2011 |
+| nvarchar | 1500 |
+| datetimeoffset | 1397 |
+| NULL | 1356 |
+| uniqueidentifier | 1004 |
+| binary | 998 |
+| smallint | 745 |
+| char | 572 |
+| date | 480 |
+| tinyint | 466 |
+| SXAGNStringDtTbl | 452 |
+| SXAGNBigintTbl | 415 |
+| SXAGNBigintBigintTbl | 325 |
+| decimal | 307 |
 
 ### Routines with the most parameter rows
 
@@ -147,6 +149,7 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | dbo.SXAAMBClientPrescriptionUpdPr | SQL_STORED_PROCEDURE | 70 |
 | dbo.SXAHMScheduledEventOccurrenceUpdAllPr | SQL_STORED_PROCEDURE | 66 |
 | dbo.SXAMMFillingReportDataUpdPr | SQL_STORED_PROCEDURE | 66 |
+| System.Activities.DurableInstancing.InsertPromotedProperties | SQL_STORED_PROCEDURE | 66 |
 | dbo.SXAHMMarkAsDoneUpdAllPr | SQL_STORED_PROCEDURE | 63 |
 | dbo.SXAAMClientUpdPR | SQL_STORED_PROCEDURE | 62 |
 | dbo.SXAMMGenericItemSelPr | SQL_STORED_PROCEDURE | 62 |
@@ -154,7 +157,6 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | dbo.CV3EnterpriseVisitDataIP | SQL_STORED_PROCEDURE | 61 |
 | dbo.SXAAMClientInsPR | SQL_STORED_PROCEDURE | 61 |
 | dbo.SXAAMVisitInsPr | SQL_STORED_PROCEDURE | 61 |
-| dbo.CV3EnterpriseClientDataIP | SQL_STORED_PROCEDURE | 60 |
 
 ## Most referenced tables by foreign keys
 
