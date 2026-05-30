@@ -10,5 +10,6 @@ This folder stores raw tab-separated schema discovery exports for the `TCR1` dat
 | `foreign_keys.tsv` | Foreign key relationships, referential actions, and trust/disabled status. |
 | `indexes.tsv` | Index definitions, uniqueness, filters, key columns, and included columns. |
 | `check_constraints.tsv` | Check constraint definitions and trust/disabled status. |
+| `routine_parameters.tsv` | Stored procedure and function parameter metadata. |
 
 See [`../tcr1-schema-results-summary.md`](../tcr1-schema-results-summary.md) for a generated summary of these exports.
