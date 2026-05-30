@@ -14,6 +14,7 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | --- | --- | --- |
 | database_overview.tsv | 1 | database_name	compatibility_level	collation_name	recovery_model_desc	create_date |
 | schemas.tsv | 28 | schema_name	owner_name |
+| columns.tsv | 32229 | schema_name	object_name	object_type	column_id	column_name	data_type	character_or_binary_length	precision	scale	is_nullable	is_identity	is_computed	default_definition	computed_definition	collation_name (partial: column chunk 1 of 3 imported) |
 | primary_keys.tsv | 4285 | schema_name	table_name	constraint_name	constraint_type	key_columns |
 | foreign_keys.tsv | 5069 | foreign_key_name	parent_schema_name	parent_table_name	parent_columns	referenced_schema_name	referenced_table_name	referenced_columns	update_referential_action_desc	delete_referential_action_desc	is_disabled	is_not_trusted |
 | indexes.tsv | 8578 | schema_name	table_name	index_name	index_type	is_unique	is_primary_key	is_unique_constraint	has_filter	filter_definition	key_columns	included_columns |
@@ -25,7 +26,8 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | Area | Rows or count | Notes |
 | --- | --- | --- |
 | Schemas | 28 | Schema names and owners |
-| Known tables from provided exports | 4342 | Derived from primary keys, foreign keys, indexes, and constraints |
+| Known tables from provided exports | 4543 | Derived from uploaded columns, primary keys, foreign keys, indexes, and constraints |
+| Column rows uploaded so far | 32229 | 1866 objects represented; partial column inventory, chunk 1 of 3 imported |
 | Primary key constraints | 4285 | 4283 tables with primary key rows |
 | Foreign key relationships | 5069 | 2465 parent tables, 1404 referenced tables |
 | Indexes | 8578 | 4340 tables with index rows |
@@ -65,10 +67,75 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | tracking_reader | tracking_reader |
 | tracking_writer | tracking_writer |
 
+## Column inventory, partial upload
+
+Column inventory is currently partial: chunk 1 of 3 has been imported into [`schema-results/columns.tsv`](schema-results/columns.tsv).
+
+### Most common column data types uploaded so far
+
+| Data type | Column rows |
+| --- | --- |
+| varchar | 9477 |
+| int | 5497 |
+| bit | 3072 |
+| HVCIDdt | 2745 |
+| datetime | 2517 |
+| uniqueidentifier | 2418 |
+| datetimeoffset | 1450 |
+| bigint | 1154 |
+| smallint | 1002 |
+| tinyint | 883 |
+| timestamp | 619 |
+| numeric | 428 |
+| char | 284 |
+| date | 159 |
+| nvarchar | 148 |
+| SXACurrencyDt | 125 |
+| float | 63 |
+| xml | 60 |
+| sysname | 52 |
+| varbinary | 36 |
+
+### Column rows by schema uploaded so far
+
+| Schema | Column rows |
+| --- | --- |
+| dbo | 32187 |
+| ASCLOUD\A711233 | 42 |
+
+### Objects with the most uploaded column rows so far
+
+| Object | Object type | Column row count |
+| --- | --- | --- |
+| dbo.CV3VisitListJoin | VIEW | 218 |
+| dbo.CV3VisitListInactiveJoin | VIEW | 210 |
+| dbo.CV3EnterpriseChartData | USER_TABLE | 163 |
+| dbo.CV3EnterpriseVisitData | USER_TABLE | 163 |
+| dbo.CV3EnterpriseClientData | USER_TABLE | 162 |
+| dbo.CV3AlternateOrder | USER_TABLE | 118 |
+| dbo.CV3Order | USER_TABLE | 118 |
+| dbo.CV3OutpatientOrder | USER_TABLE | 118 |
+| dbo.SXACCFutureOrder | USER_TABLE | 118 |
+| dbo.CV3AllOrdersVw | VIEW | 117 |
+| dbo.SXACCAllOrders2Vw | VIEW | 117 |
+| dbo.CV3OrderRequestByJoin | VIEW | 115 |
+| dbo.CV3ObsCatalogMasterItem | USER_TABLE | 108 |
+| dbo.CV3OrderAddnlInfo | USER_TABLE | 101 |
+| dbo.KB1551835_SXAAMBClientPrescription | USER_TABLE | 98 |
+| dbo.SXAAMBClientPrescription | USER_TABLE | 98 |
+| dbo.CV3FutureOrderByDeptJoinVw | VIEW | 96 |
+| dbo.CV3OrderByDeptJoin | VIEW | 96 |
+| dbo.CV3OutpatientOrderByDeptVw | VIEW | 96 |
+| dbo.CV3MedicationExtension | USER_TABLE | 95 |
+
 ## Constraint and relationship signals
 
 | Signal | Count | Meaning |
 | --- | --- | --- |
+| Nullable columns uploaded so far | 13912 | Partial column inventory |
+| Identity columns uploaded so far | 873 | Partial column inventory |
+| Computed columns uploaded so far | 1 | Partial column inventory |
+| Columns with defaults uploaded so far | 7923 | Partial column inventory |
 | Composite primary keys | 429 | Primary keys with more than one key column |
 | Disabled foreign keys | 699 | Foreign keys currently disabled |
 | Untrusted foreign keys | 733 | Foreign keys SQL Server cannot assume are trusted |
@@ -348,10 +415,10 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 
 ## Remaining discovery exports needed
 
-The uploaded results do not include the table/view inventory, column inventory, or routine dependency export from `sql/sqlserver/schema_inventory.sql`. Add these exports next to complete table-level documentation:
+The uploaded results do not include the table/view inventory, column inventory chunks 2 and 3, or routine dependency export from `sql/sqlserver/schema_inventory.sql`. Add these exports next to complete table-level documentation:
 
 - `tables_views.tsv`
-- `columns.tsv`
+- remaining `columns.tsv` chunks
 - `routine_dependencies.tsv`
 
 Once those are available, use [`schema-document-template.md`](schema-document-template.md) to document each table's purpose, columns, joins, indexes, and stored procedure design notes.
