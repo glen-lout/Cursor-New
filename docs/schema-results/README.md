@@ -12,6 +12,6 @@ This folder stores raw tab-separated schema discovery exports for the `TCR1` dat
 | `indexes.tsv` | Index definitions, uniqueness, filters, key columns, and included columns. |
 | `check_constraints.tsv` | Check constraint definitions and trust/disabled status. |
 | `routine_parameters.tsv` | Stored procedure and function parameter metadata. |
-| `routine_dependencies.tsv` | Routine, trigger, and SQL expression dependency metadata. Partial: chunks 1 through 3 of 4 have been imported. |
+| `routine_dependencies.tsv` | Routine, trigger, and SQL expression dependency metadata from all four uploaded dependency chunks. |
 
 See [`../tcr1-schema-results-summary.md`](../tcr1-schema-results-summary.md) for a generated summary of these exports.
