@@ -20,7 +20,7 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | indexes.tsv | 8578 | schema_name	table_name	index_name	index_type	is_unique	is_primary_key	is_unique_constraint	has_filter	filter_definition	key_columns	included_columns |
 | check_constraints.tsv | 64 | schema_name	table_name	check_constraint_name	definition	is_disabled	is_not_trusted |
 | routine_parameters.tsv | 80830 | schema_name	routine_name	routine_type	parameter_id	parameter_name	data_type	character_or_binary_length	precision	scale	is_output	has_default_value	default_value |
-| routine_dependencies.tsv | 35638 | referencing_schema_name	referencing_object_name	referencing_object_type	referenced_schema_name	referenced_entity_name	referenced_object_type (partial: dependency chunk 1 of 4 imported) |
+| routine_dependencies.tsv | 70757 | referencing_schema_name	referencing_object_name	referencing_object_type	referenced_schema_name	referenced_entity_name	referenced_object_type (partial: dependency chunks 1 and 2 of 4 imported) |
 
 ## Coverage summary
 
@@ -34,7 +34,7 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | Indexes | 8578 | 4340 tables with index rows |
 | Check constraints | 64 | 49 tables with check constraints |
 | Routine parameter rows | 80830 | 18569 distinct routines/functions with parameter metadata |
-| Dependency rows uploaded so far | 35638 | 6842 referencing objects and 4071 referenced entities; partial dependency inventory, chunk 1 of 4 imported |
+| Dependency rows uploaded so far | 70757 | 12851 referencing objects and 6707 referenced entities; partial dependency inventory, chunks 1 and 2 of 4 imported |
 
 ## Schemas
 
@@ -134,42 +134,42 @@ Column inventory chunks 1 through 3 have been imported into [`schema-results/col
 
 ## Dependency inventory, partial upload
 
-Dependency inventory is currently partial: chunk 1 of 4 has been imported into [`schema-results/routine_dependencies.tsv`](schema-results/routine_dependencies.tsv).
+Dependency inventory is currently partial: chunks 1 and 2 of 4 have been imported into [`schema-results/routine_dependencies.tsv`](schema-results/routine_dependencies.tsv).
 
 ### Referencing object types uploaded so far
 
 | Referencing object type | Dependency rows |
 | --- | --- |
-| CHECK_CONSTRAINT | 34 |
-| DEFAULT_CONSTRAINT | 791 |
-| SQL_INLINE_TABLE_VALUED_FUNCTION | 591 |
-| SQL_SCALAR_FUNCTION | 184 |
-| SQL_STORED_PROCEDURE | 32606 |
-| SQL_TABLE_VALUED_FUNCTION | 16 |
-| SQL_TRIGGER | 1129 |
-| USER_TABLE | 9 |
-| VIEW | 278 |
+| CHECK_CONSTRAINT | 61 |
+| DEFAULT_CONSTRAINT | 795 |
+| SQL_INLINE_TABLE_VALUED_FUNCTION | 944 |
+| SQL_SCALAR_FUNCTION | 580 |
+| SQL_STORED_PROCEDURE | 66274 |
+| SQL_TABLE_VALUED_FUNCTION | 222 |
+| SQL_TRIGGER | 1534 |
+| USER_TABLE | 13 |
+| VIEW | 334 |
 
 ### Referenced object types uploaded so far
 
 | Referenced object type | Dependency rows |
 | --- | --- |
-| NULL | 6665 |
-| SEQUENCE_OBJECT | 13 |
-| SERVICE_QUEUE | 30 |
-| SQL_INLINE_TABLE_VALUED_FUNCTION | 2406 |
-| SQL_SCALAR_FUNCTION | 2738 |
-| SQL_STORED_PROCEDURE | 79 |
-| SQL_TABLE_VALUED_FUNCTION | 85 |
-| SYNONYM | 366 |
-| USER_TABLE | 22280 |
-| VIEW | 976 |
+| NULL | 12880 |
+| SEQUENCE_OBJECT | 25 |
+| SERVICE_QUEUE | 37 |
+| SQL_INLINE_TABLE_VALUED_FUNCTION | 5343 |
+| SQL_SCALAR_FUNCTION | 4542 |
+| SQL_STORED_PROCEDURE | 87 |
+| SQL_TABLE_VALUED_FUNCTION | 231 |
+| SYNONYM | 460 |
+| USER_TABLE | 44929 |
+| VIEW | 2223 |
 
 ### Dependency rows by referencing schema uploaded so far
 
 | Referencing schema | Dependency rows |
 | --- | --- |
-| dbo | 35142 |
+| dbo | 70261 |
 | cdc | 495 |
 | cde91d87_EDI | 1 |
 
@@ -177,26 +177,26 @@ Dependency inventory is currently partial: chunk 1 of 4 has been imported into [
 
 | Referenced entity | Dependency row count |
 | --- | --- |
-| NULL.HVCIDdt | 2677 |
-| dbo.SCMSiteIDFn | 1031 |
-| NULL.CV3ClientVisit | 878 |
-| dbo.SXADBBuildFn | 737 |
-| dbo.SXADBGetEnterpriseNowTblFn | 699 |
-| NULL.CV3User | 668 |
-| NULL.CV3Location | 574 |
-| NULL.CV3Client | 505 |
-| NULL.CV3Order | 462 |
-| NULL.CV3CareProvider | 318 |
-| NULL.CV3OrderCatalogMasterItem | 249 |
-| NULL.HVCEnvProfile | 242 |
-| dbo.SXADBGetEnterpriseOffsetNowTblFn | 217 |
-| NULL.CareEnterprise | 217 |
-| NULL.inserted | 204 |
-| NULL.CV3UserSecurityGroup | 202 |
-| NULL.CV3ClientDocument | 195 |
-| NULL.CV3Rights | 194 |
-| NULL.CV3Service | 189 |
-| dbo.SXADBGetEnterpriseNowFn | 188 |
+| NULL.HVCIDdt | 4672 |
+| dbo.SXADBGetEnterpriseNowTblFn | 1683 |
+| NULL.CV3ClientVisit | 1651 |
+| dbo.SXADBBuildFn | 1500 |
+| NULL.CV3User | 1197 |
+| NULL.CV3Location | 1157 |
+| dbo.SCMSiteIDFn | 1111 |
+| NULL.CV3Client | 830 |
+| NULL.CV3Order | 779 |
+| dbo.SXADBGetEnterpriseOffsetNowTblFn | 600 |
+| NULL.HVCEnvProfile | 572 |
+| NULL.CV3CareProvider | 524 |
+| NULL.CV3ClientDocument | 523 |
+| NULL.CV3EnumReference | 429 |
+| NULL.CV3OrderCatalogMasterItem | 379 |
+| NULL.CV3UserSecurityGroup | 364 |
+| NULL.CareEnterprise | 350 |
+| NULL.CV3SecurityGroupRights | 345 |
+| NULL.CV3Rights | 340 |
+| NULL.CV3PatientCareDocument | 338 |
 
 ### Objects with the most dependency rows uploaded so far
 
@@ -205,6 +205,7 @@ Dependency inventory is currently partial: chunk 1 of 4 has been imported into [
 | dbo.SXAAMVisitMergeUpdPr | 161 |
 | dbo.SXAAMMoveVisitUpdPr | 144 |
 | dbo.SXAAMDictionarySelPR | 135 |
+| dbo.SXAHL7ADTTransGetPr | 96 |
 | dbo.CV3ChartFlagsSelPr | 83 |
 | dbo.SXAAMCTDictionarySelPr | 75 |
 | dbo.SXAAMBSVChartFlagsSelPr | 69 |
@@ -212,16 +213,15 @@ Dependency inventory is currently partial: chunk 1 of 4 has been imported into [
 | dbo.SXAAMMiniVisitsSelPr | 61 |
 | dbo.SXACCFHIRCarePlanSelPR | 61 |
 | dbo.SXACCFHIRCarePlanV3SelPR | 61 |
+| dbo.SXACDFHIRDocumentReferenceByPatientV3SelPr | 60 |
+| dbo.SXACDFHIRDocumentReferenceForPopulationV3SelPr | 60 |
+| dbo.SXACDFHIRDocumentReferenceByPatientSelPr | 59 |
+| dbo.SXACDFHIRDocumentReferenceForPopulationSelPr | 58 |
+| dbo.SXADRDocListByAllSelPr | 58 |
 | dbo.SXACCFhirCarePlanAssesmentAndPlanByIdV3SelPr | 57 |
 | dbo.SXACCFhirCarePlanAssesmentAndPlanByIdSelPr | 56 |
+| dbo.SXACDGetVitalSignsForPopulation_USCDIV3_V3SelPr | 56 |
 | dbo.SXAAMPatientMergeClientUpdPR | 55 |
-| dbo.SXACCFHIRGetServiceRequestsByFilterSelPr | 55 |
-| dbo.SXAAMBClientPrescriptionWithHealthIssuesSelPr | 53 |
-| dbo.CV3FindTaskItemByPatientsV2Pr | 52 |
-| dbo.MTDM_OrderRequisition_R_Pr_Reprint | 52 |
-| dbo.SXACCFHIRUSCDIV3GetMedicationOrdersByFilterSelPr | 49 |
-| dbo.CV3VisitMovePr | 48 |
-| dbo.SXACCFHIRGetCRDServiceRequestsByFilterSelPr | 48 |
 
 ## Constraint and relationship signals
 
@@ -510,7 +510,7 @@ Dependency inventory is currently partial: chunk 1 of 4 has been imported into [
 
 ## Remaining discovery exports needed
 
-The uploaded results do not include the table/view inventory or dependency chunks 2 through 4 from `sql/sqlserver/schema_inventory.sql`. Add these exports next to complete table-level documentation:
+The uploaded results do not include the table/view inventory or dependency chunks 3 and 4 from `sql/sqlserver/schema_inventory.sql`. Add these exports next to complete table-level documentation:
 
 - `tables_views.tsv`
 - remaining `routine_dependencies.tsv` chunks
