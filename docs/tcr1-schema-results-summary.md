@@ -14,7 +14,7 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | --- | --- | --- |
 | database_overview.tsv | 1 | database_name	compatibility_level	collation_name	recovery_model_desc	create_date |
 | schemas.tsv | 28 | schema_name	owner_name |
-| columns.tsv | 63356 | schema_name	object_name	object_type	column_id	column_name	data_type	character_or_binary_length	precision	scale	is_nullable	is_identity	is_computed	default_definition	computed_definition	collation_name (partial: column chunks 1 and 2 of 3 imported) |
+| columns.tsv | 75049 | schema_name	object_name	object_type	column_id	column_name	data_type	character_or_binary_length	precision	scale	is_nullable	is_identity	is_computed	default_definition	computed_definition	collation_name |
 | primary_keys.tsv | 4285 | schema_name	table_name	constraint_name	constraint_type	key_columns |
 | foreign_keys.tsv | 5069 | foreign_key_name	parent_schema_name	parent_table_name	parent_columns	referenced_schema_name	referenced_table_name	referenced_columns	update_referential_action_desc	delete_referential_action_desc	is_disabled	is_not_trusted |
 | indexes.tsv | 8578 | schema_name	table_name	index_name	index_type	is_unique	is_primary_key	is_unique_constraint	has_filter	filter_definition	key_columns	included_columns |
@@ -26,8 +26,8 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | Area | Rows or count | Notes |
 | --- | --- | --- |
 | Schemas | 28 | Schema names and owners |
-| Known tables from provided exports | 4554 | Derived from uploaded columns, primary keys, foreign keys, indexes, and constraints |
-| Column rows uploaded so far | 63356 | 3995 objects represented; partial column inventory, chunks 1 and 2 of 3 imported |
+| Known tables from provided exports | 4578 | Derived from uploaded columns, primary keys, foreign keys, indexes, and constraints |
+| Column rows | 75049 | 4842 objects represented: 4578 tables and 264 views/other objects |
 | Primary key constraints | 4285 | 4283 tables with primary key rows |
 | Foreign key relationships | 5069 | 2465 parent tables, 1404 referenced tables |
 | Indexes | 8578 | 4340 tables with index rows |
@@ -67,43 +67,45 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | tracking_reader | tracking_reader |
 | tracking_writer | tracking_writer |
 
-## Column inventory, partial upload
+## Column inventory
 
-Column inventory is currently partial: chunks 1 and 2 of 3 have been imported into [`schema-results/columns.tsv`](schema-results/columns.tsv).
+Column inventory chunks 1 through 3 have been imported into [`schema-results/columns.tsv`](schema-results/columns.tsv).
 
-### Most common column data types uploaded so far
+### Most common column data types
 
 | Data type | Column rows |
 | --- | --- |
-| varchar | 18107 |
-| int | 12231 |
-| bit | 5206 |
-| uniqueidentifier | 4970 |
-| datetimeoffset | 4566 |
-| datetime | 3816 |
-| HVCIDdt | 3486 |
-| bigint | 2951 |
-| timestamp | 1966 |
-| smallint | 1583 |
-| tinyint | 968 |
-| numeric | 910 |
-| nvarchar | 780 |
-| char | 552 |
-| date | 388 |
-| SXACurrencyDt | 371 |
-| xml | 138 |
-| SXARateDt | 88 |
-| sysname | 70 |
-| varbinary | 68 |
+| varchar | 21208 |
+| int | 14568 |
+| bit | 6131 |
+| datetimeoffset | 5881 |
+| uniqueidentifier | 5824 |
+| datetime | 4110 |
+| HVCIDdt | 3810 |
+| bigint | 3747 |
+| timestamp | 2546 |
+| smallint | 1753 |
+| nvarchar | 1024 |
+| numeric | 1017 |
+| tinyint | 1009 |
+| char | 658 |
+| date | 500 |
+| SXACurrencyDt | 432 |
+| varbinary | 182 |
+| xml | 181 |
+| SXARateDt | 96 |
+| decimal | 75 |
 
-### Column rows by schema uploaded so far
+### Column rows by schema
 
 | Schema | Column rows |
 | --- | --- |
-| dbo | 63314 |
+| dbo | 74590 |
+| System.Activities.DurableInstancing | 306 |
+| PRIME\suppor3 | 111 |
 | ASCLOUD\A711233 | 42 |
 
-### Objects with the most uploaded column rows so far
+### Objects with the most column rows
 
 | Object | Object type | Column row count |
 | --- | --- | --- |
@@ -125,17 +127,17 @@ Column inventory is currently partial: chunks 1 and 2 of 3 have been imported in
 | dbo.CV3OrderAddnlInfo | USER_TABLE | 101 |
 | dbo.KB1551835_SXAAMBClientPrescription | USER_TABLE | 98 |
 | dbo.SXAAMBClientPrescription | USER_TABLE | 98 |
+| dbo.vUAISXAAMBClientPrescription | VIEW | 98 |
 | dbo.CV3FutureOrderByDeptJoinVw | VIEW | 96 |
-| dbo.CV3OrderByDeptJoin | VIEW | 96 |
 
 ## Constraint and relationship signals
 
 | Signal | Count | Meaning |
 | --- | --- | --- |
-| Nullable columns uploaded so far | 21264 | Partial column inventory |
-| Identity columns uploaded so far | 2541 | Partial column inventory |
-| Computed columns uploaded so far | 4 | Partial column inventory |
-| Columns with defaults uploaded so far | 16908 | Partial column inventory |
+| Nullable columns | 24504 | Complete uploaded column inventory |
+| Identity columns | 3202 | Complete uploaded column inventory |
+| Computed columns | 9 | Complete uploaded column inventory |
+| Columns with defaults | 19921 | Complete uploaded column inventory |
 | Composite primary keys | 429 | Primary keys with more than one key column |
 | Disabled foreign keys | 699 | Foreign keys currently disabled |
 | Untrusted foreign keys | 733 | Foreign keys SQL Server cannot assume are trusted |
@@ -415,10 +417,9 @@ Column inventory is currently partial: chunks 1 and 2 of 3 have been imported in
 
 ## Remaining discovery exports needed
 
-The uploaded results do not include the table/view inventory, column inventory chunk 3, or routine dependency export from `sql/sqlserver/schema_inventory.sql`. Add these exports next to complete table-level documentation:
+The uploaded results do not include the table/view inventory or routine dependency export from `sql/sqlserver/schema_inventory.sql`. Add these exports next to complete table-level documentation:
 
 - `tables_views.tsv`
-- remaining `columns.tsv` chunk
 - `routine_dependencies.tsv`
 
 Once those are available, use [`schema-document-template.md`](schema-document-template.md) to document each table's purpose, columns, joins, indexes, and stored procedure design notes.
