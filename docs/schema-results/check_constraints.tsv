@@ -1,0 +1,65 @@
+schema_name	table_name	check_constraint_name	definition	is_disabled	is_not_trusted
+dbo	ACS_EMCalcRule	CHK1ACS_EMCalcRule	([applyWhenAdministered]='N' OR [applyWhenAdministered]='Y')	0	0
+dbo	ACS_EMCalcRule	CHK2ACS_EMCalcRule	([allowMultiples]='N' OR [allowMultiples]='Y')	0	0
+dbo	ACS_EMCalcRule	CHK4ACS_EMCalcRule	([active]='N' OR [active]='Y')	0	0
+dbo	ACS_EMCalcRule	CHK5ACS_EMCalcRule	([locked]='N' OR [locked]='Y')	0	0
+dbo	ACS_EMCalcRule	CHKACS_EMCalcRule_DeptType	([DeptType]='B' OR [DeptType]='A')	0	0
+dbo	ACS_EMCategory	CHK2ACS_EMCategory	([active]='N' OR [active]='Y')	0	0
+dbo	ACS_EMCategory	CHK3ACS_EMCategory	([locked]='N' OR [locked]='Y')	0	0
+dbo	ACS_EmChargeRule	CHKACS_EmChargeRule_Temp_active	([active]='N' OR [active]='Y')	0	0
+dbo	ACS_EmChargeRule	CHKACS_EmChargeRule_Temp_DeptType	([DeptType]='Z' OR [DeptType]='B' OR [DeptType]='A')	0	0
+dbo	ACS_EMComponentMapping	CHK2ACS_EMComponentMapping	([active]='N' OR [active]='Y')	0	0
+dbo	ACS_EMComponentMapping	CHK3ACS_EMComponentMapping	([locked]='N' OR [locked]='Y')	0	0
+dbo	ACS_EMProfessionalGroup	CHK2ACS_EMProfessionalGroup	([active]='N' OR [active]='Y')	0	0
+dbo	ACS_EMProfessionalGroup	CHK3ACS_EMProfessionalGroup	([locked]='N' OR [locked]='Y')	0	0
+dbo	ACS_EMProfessionalGroupObs	CHK2ACS_EMProfessionalGroupObs	([active]='N' OR [active]='Y')	0	0
+dbo	ACS_EMProfessionalGroupObs	CHK3ACS_EMProfessionalGroupObs	([locked]='N' OR [locked]='Y')	0	0
+dbo	CV3ClientDocDetailARC	CV3ClientDocDetailARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	CV3ClientDocDetailCUR	CV3ClientDocDetailCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	CV3ClientDocDetailHistXrefARC	CV3ClientDocDetailHistXrefARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	CV3ClientDocDetailHistXrefCUR	CV3ClientDocDetailHistXrefCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	CV3ClientDocHistoryARC	CV3ClientDocHistoryARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	CV3ClientDocHistoryCUR	CV3ClientDocHistoryCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	CV3ClientDocProviderXrefARC	CV3ClientDocProviderXrefARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	CV3ClientDocProviderXrefCUR	CV3ClientDocProviderXrefCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	CV3ClientDocumentARC	CV3ClientDocumentARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	CV3ClientDocumentARC	CV3ClientDocumentARC_ServiceDtmUTCCHK	([ServiceDtmUTC] IS NOT NULL)	0	1
+dbo	CV3ClientDocumentCUR	CV3ClientDocumentCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	CV3ClientDocumentCUR	CV3ClientDocumentCUR_ServiceDtmUTCCHK	([ServiceDtmUTC] IS NOT NULL)	0	1
+dbo	CV3ClientVisit	CV3ClientVisit_ArcTypeCHK	([ArcType] IS NOT NULL)	0	1
+dbo	CV3ObservationARC	CV3ObservationARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	CV3ObservationCUR	CV3ObservationCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	CV3ObservationDocumentARC	CV3ObservationDocumentARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	CV3ObservationDocumentCUR	CV3ObservationDocumentCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	CV3ObservationXInfoARC	CV3ObservationXInfoARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	CV3ObservationXInfoCUR	CV3ObservationXInfoCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	SXACDChartedFormDecorativeLabelARC	SXACDChartedFormDecorativeLabelARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	SXACDChartedFormDecorativeLabelCUR	SXACDChartedFormDecorativeLabelCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	SXACDClientDocDetailTextARC	SXACDClientDocDetailTextARC_ArcTypeCHK	([ArcType]>(0))	0	0
+dbo	SXACDClientDocDetailTextCUR	SXACDClientDocDetailTextCUR_ArcTypeCHK	([ArcType]=(0))	0	0
+dbo	SXAEHIFullDBRequest	SXAEHIFullDBRequest_NetworkPathCHK	(right([NetworkPath],(1))<>'\')	0	0
+dbo	SXAEHIRequest	SXAEHIRequest_NetworkPathCHK	(right([NetworkPath],(1))<>'\')	0	0
+dbo	SXAEISAttributeDefinition	SXAEISAttributeDefinition_ImplementationCategoryCHK	([ImplementationCategory]='EIS' OR [ImplementationCategory]='OPTL' OR [ImplementationCategory]='CORE')	0	0
+dbo	SXAEISAttributeExpression	SXAEISAttributeExpression_ExpressionUsageTypeCHK	([ExpressionUsageType]='VLDT' OR [ExpressionUsageType]='DFTV' OR [ExpressionUsageType]='CLCV')	0	0
+dbo	SXAEISDataModel	SXAEISDataModel_UsageTypeCHK	([UsageType]='DVLP' OR [UsageType]='BASE' OR [UsageType]='BILD')	0	0
+dbo	SXAEISEntityDefinition	SXAEISEntityDefinition_ImplementationCategoryCHK	([ImplementationCategory]='OPTL' OR [ImplementationCategory]='CORE')	0	0
+dbo	SXAEISEntityUniquenessConstraintXref	SXAEISEntityUniquenessConstraintXref_ConstraintTypeCHK	([ConstraintType]='URQ' OR [ConstraintType]='UCQ')	0	0
+dbo	SXAEISExpressionComponent	SXAEISExpressionComponent_BindingRuleCHK	([BindingRule]='NONE' OR [BindingRule]='EXEC' OR [BindingRule]='OVRD' OR [BindingRule]='DEFN')	0	0
+dbo	SXAEISExpressionComponent	SXAEISExpressionComponent_DataSourceTypeCHK	([DataSourceType]='NONE' OR [DataSourceType]='SELF' OR [DataSourceType]='QRST' OR [DataSourceType]='INDAT' OR [DataSourceType]='SARG' OR [DataSourceType]='DBMS' OR [DataSourceType]='XPRS')	0	0
+dbo	SXAEISExpressionFunctionArgument	SXAEISExpressionFunctionArgument_DirectionCHK	([Direction]='OUT' OR [Direction]='IN')	0	0
+dbo	SXAEISExpressionImplementationType	SXAEISExpressionImplementationType_ImplementationTypeNameCHK	([ImplementationTypeName]='DBCDFT' OR [ImplementationTypeName]='DBPROC' OR [ImplementationTypeName]='EIS')	0	0
+dbo	SXAEISInstanceSet	SXAEISInstanceSet_InstanceTypeCHK	([InstanceType]='SRV' OR [InstanceType]='MGD' OR [InstanceType]='HIS' OR [InstanceType]='CUR')	0	0
+dbo	SXAEISQueryDefinition	SXAEISQueryDefinition_ResultSetTypeCHK	([ResultSetType]='SCMA' OR [ResultSetType]='ALDT' OR [ResultSetType]='IDRF' OR [ResultSetType]='ALL')	0	0
+dbo	SXAEISQueryExecution	SXAEISQueryExecution_ExecutionUnitTypeCHK	([ExecutionUnitType]='SRCHGRP' OR [ExecutionUnitType]='URQGRP' OR [ExecutionUnitType]='UCQGRP' OR [ExecutionUnitType]='QRY')	0	0
+dbo	SXAEISQuerySchema	SXAEISQuerySchema_SchemaUsageTypeCHK	([SchemaUsageType]='SRCHARG' OR [SchemaUsageType]='DBUPDT' OR [SchemaUsageType]='RSLTSET')	0	0
+dbo	SXAEISRelationshipDefinition	SXAEISRelationshipDefinition_ActionOnDeleteCHK	([ActionOnDelete]='CASCADE' OR [ActionOnDelete]='NOACTION')	0	0
+dbo	SXAEISRelationshipDefinition	SXAEISRelationshipDefinition_ActionOnUpdateCHK	([ActionOnUpdate]='CASCADE' OR [ActionOnUpdate]='NOACTION')	0	0
+dbo	SXAEISRequestExecution	SXAEISRequestExecution_EventTypeCHK	([EventType]='RQALL' OR [EventType]='RQABT' OR [EventType]='RQEND' OR [EventType]='RQST' OR [EventType]='SECURITY' OR [EventType]='ERROR' OR [EventType]='INFO')	0	0
+dbo	SXAEISSchemaDefinition	SXAEISSchemaDefinition_SchemaTypeCHK	([SchemaType]='CUST' OR [SchemaType]='LGDM' OR [SchemaType]='ENTY' OR [SchemaType]='DMDL')	0	0
+dbo	SXAEISSchemaEntity	SXAEISSchemaEntity_AttributeCollectionTypeCHK	([AttributeCollectionType]='SCMA' OR [AttributeCollectionType]='ALDT' OR [AttributeCollectionType]='IDRF' OR [AttributeCollectionType]='ALL')	0	0
+dbo	SXAEISSelectionExpression	SXAEISSelectionExpression_BuildOptionCHK	([BuildOption]='DFLT' OR [BuildOption]='CMD' OR [BuildOption]='EXPR')	0	0
+dbo	SXAEISTemplateExpressionComponent	SXAEISTemplateExpressionComponent_BindingRuleCHK	([BindingRule]='NONE' OR [BindingRule]='EXEC' OR [BindingRule]='OVRD' OR [BindingRule]='DEFN')	0	0
+dbo	SXAEISTemplateExpressionComponent	SXAEISTemplateExpressionComponent_DataSourceTypeCHK	([DataSourceType]='NONE' OR [DataSourceType]='SELF' OR [DataSourceType]='QRST' OR [DataSourceType]='INDAT' OR [DataSourceType]='SARG' OR [DataSourceType]='DBMS' OR [DataSourceType]='XPRS')	0	0
+dbo	SXARCMEReimbursementMethodDetail	SXARCMEReimbursementMethodDetailCHK	([MethodVersionID] IS NOT NULL AND [StopLossID] IS NULL AND [ERExceptionID] IS NULL OR [MethodVersionID] IS NULL AND [StopLossID] IS NOT NULL AND [ERExceptionID] IS NULL OR [MethodVersionID] IS NULL AND [StopLossID] IS NULL AND [ERExceptionID] IS NOT NULL OR [MethodVersionID] IS NULL AND [StopLossID] IS NULL AND [ERExceptionID] IS NULL)	0	1
+dbo	SXARCMThirdPartyCode	SXARCMThirdPartyCodeProviderIDCHK	([ThirdPartyCodeTypeID]<>(7) OR len([ProviderID])=(8))	0	0
+dbo	SXARCMThirdPartyCode	SXARCMThirdPartyCodeProviderNPICHK	([ThirdPartyCodeTypeID]<>(7) OR len([ProviderNPI])=(10))	0	0
