@@ -18,7 +18,7 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | foreign_keys.tsv | 5069 | foreign_key_name	parent_schema_name	parent_table_name	parent_columns	referenced_schema_name	referenced_table_name	referenced_columns	update_referential_action_desc	delete_referential_action_desc	is_disabled	is_not_trusted |
 | indexes.tsv | 8578 | schema_name	table_name	index_name	index_type	is_unique	is_primary_key	is_unique_constraint	has_filter	filter_definition	key_columns	included_columns |
 | check_constraints.tsv | 64 | schema_name	table_name	check_constraint_name	definition	is_disabled	is_not_trusted |
-| routine_parameters.tsv | 33573 | schema_name	routine_name	routine_type	parameter_id	parameter_name	data_type	character_or_binary_length	precision	scale	is_output	has_default_value	default_value |
+| routine_parameters.tsv | 67257 | schema_name	routine_name	routine_type	parameter_id	parameter_name	data_type	character_or_binary_length	precision	scale	is_output	has_default_value	default_value |
 
 ## Coverage summary
 
@@ -30,7 +30,7 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 | Foreign key relationships | 5069 | 2465 parent tables, 1404 referenced tables |
 | Indexes | 8578 | 4340 tables with index rows |
 | Check constraints | 64 | 49 tables with check constraints |
-| Routine parameter rows | 33573 | 7446 distinct routines/functions with parameter metadata |
+| Routine parameter rows | 67257 | 15167 distinct routines/functions with parameter metadata |
 
 ## Schemas
 
@@ -93,16 +93,16 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 
 | Routine type | Parameter rows |
 | --- | --- |
-| SQL_INLINE_TABLE_VALUED_FUNCTION | 1671 |
-| SQL_SCALAR_FUNCTION | 468 |
-| SQL_STORED_PROCEDURE | 31398 |
-| SQL_TABLE_VALUED_FUNCTION | 36 |
+| SQL_INLINE_TABLE_VALUED_FUNCTION | 2021 |
+| SQL_SCALAR_FUNCTION | 1099 |
+| SQL_STORED_PROCEDURE | 63920 |
+| SQL_TABLE_VALUED_FUNCTION | 217 |
 
 ### Routines by schema
 
 | Schema | Parameter rows |
 | --- | --- |
-| dbo | 32132 |
+| dbo | 65816 |
 | cdc | 1440 |
 | cde91d87_EDI | 1 |
 
@@ -110,51 +110,51 @@ This document summarizes the uploaded schema discovery results for the `TCR1` SQ
 
 | Data type | Parameter rows |
 | --- | --- |
-| varchar | 10348 |
-| HVCIDdt | 6034 |
-| int | 4876 |
-| bit | 2905 |
-| datetime | 1567 |
-| bigint | 1037 |
-| binary | 971 |
-| numeric | 799 |
-| nvarchar | 786 |
-| NULL | 644 |
-| datetimeoffset | 582 |
-| uniqueidentifier | 390 |
-| SXAGNStringDtTbl | 364 |
-| smallint | 353 |
-| tinyint | 310 |
-| char | 262 |
-| decimal | 162 |
-| date | 120 |
-| SXAFHIRBTGDtTbl | 120 |
-| SXAGNBigintIDXDtTbl | 117 |
+| varchar | 20851 |
+| int | 11779 |
+| HVCIDdt | 9223 |
+| bit | 6260 |
+| bigint | 3951 |
+| datetime | 2961 |
+| numeric | 1660 |
+| nvarchar | 1254 |
+| NULL | 1193 |
+| datetimeoffset | 1013 |
+| binary | 979 |
+| uniqueidentifier | 848 |
+| smallint | 551 |
+| char | 464 |
+| tinyint | 427 |
+| SXAGNStringDtTbl | 416 |
+| date | 365 |
+| SXAGNBigintTbl | 317 |
+| decimal | 286 |
+| sysname | 262 |
 
 ### Routines with the most parameter rows
 
 | Routine | Routine type | Parameter row count |
 | --- | --- | --- |
+| dbo.SXAMMNonFormularyDrugInsPr | SQL_STORED_PROCEDURE | 110 |
 | dbo.SXACDObsConfigUpdPr | SQL_STORED_PROCEDURE | 102 |
+| dbo.SXAMMCV3OrderTempSelPr | SQL_STORED_PROCEDURE | 96 |
 | dbo.CV3OrderIP | SQL_STORED_PROCEDURE | 93 |
 | dbo.SXAAMBClientPrescriptionInsPr | SQL_STORED_PROCEDURE | 91 |
 | dbo.SXAAMVisitDemographicsUpdPr | SQL_STORED_PROCEDURE | 89 |
+| dbo.SXAMMFillingLabelDataUpdPr | SQL_STORED_PROCEDURE | 87 |
+| dbo.SXAMMFillingLabelDataInsPr | SQL_STORED_PROCEDURE | 85 |
+| dbo.SXAMMNonFormularySelPr | SQL_STORED_PROCEDURE | 73 |
 | dbo.SXAAMBClientPrescriptionUpdPr | SQL_STORED_PROCEDURE | 70 |
+| dbo.SXAHMScheduledEventOccurrenceUpdAllPr | SQL_STORED_PROCEDURE | 66 |
+| dbo.SXAMMFillingReportDataUpdPr | SQL_STORED_PROCEDURE | 66 |
+| dbo.SXAHMMarkAsDoneUpdAllPr | SQL_STORED_PROCEDURE | 63 |
 | dbo.SXAAMClientUpdPR | SQL_STORED_PROCEDURE | 62 |
+| dbo.SXAMMGenericItemSelPr | SQL_STORED_PROCEDURE | 62 |
 | dbo.CV3EnterpriseChartDataIP | SQL_STORED_PROCEDURE | 61 |
 | dbo.CV3EnterpriseVisitDataIP | SQL_STORED_PROCEDURE | 61 |
 | dbo.SXAAMClientInsPR | SQL_STORED_PROCEDURE | 61 |
 | dbo.SXAAMVisitInsPr | SQL_STORED_PROCEDURE | 61 |
 | dbo.CV3EnterpriseClientDataIP | SQL_STORED_PROCEDURE | 60 |
-| dbo.CV3AdvancedVisitListDataInsPr | SQL_STORED_PROCEDURE | 57 |
-| dbo.SXAAMBeRXPharmacyInsPr | SQL_STORED_PROCEDURE | 57 |
-| dbo.CV3AdvancedVisitListDataUpdPr | SQL_STORED_PROCEDURE | 56 |
-| dbo.SXAAMInsuranceInsPr | SQL_STORED_PROCEDURE | 55 |
-| dbo.SXAAMInsuranceUpdPr | SQL_STORED_PROCEDURE | 55 |
-| dbo.CV3ObservationIP | SQL_STORED_PROCEDURE | 54 |
-| dbo.SXAAMBeRXStagingInsPr | SQL_STORED_PROCEDURE | 52 |
-| dbo.CV3AlertRepositoryIP | SQL_STORED_PROCEDURE | 51 |
-| dbo.SXAAMMSPQuestionnaireHistoryInsPr | SQL_STORED_PROCEDURE | 50 |
 
 ## Most referenced tables by foreign keys
 
