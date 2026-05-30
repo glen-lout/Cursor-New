@@ -1,0 +1,287 @@
+# TCR1 Schema Results Summary
+
+This document summarizes the uploaded schema discovery results for the `TCR1` SQL Server database. Raw tab-separated result exports are stored in [`schema-results/`](schema-results/).
+
+## Database overview
+
+| Database | Compatibility level | Collation | Recovery model | Created |
+| --- | --- | --- | --- | --- |
+| TCR1 | 160 | SQL_Latin1_General_CP1_CI_AS | FULL | 2026-04-06 12:05:25.550 |
+
+## Uploaded source files
+
+| File | Rows | Columns |
+| --- | --- | --- |
+| database_overview.tsv | 1 | database_name	compatibility_level	collation_name	recovery_model_desc	create_date |
+| schemas.tsv | 28 | schema_name	owner_name |
+| primary_keys.tsv | 4285 | schema_name	table_name	constraint_name	constraint_type	key_columns |
+| foreign_keys.tsv | 5069 | foreign_key_name	parent_schema_name	parent_table_name	parent_columns	referenced_schema_name	referenced_table_name	referenced_columns	update_referential_action_desc	delete_referential_action_desc	is_disabled	is_not_trusted |
+| indexes.tsv | 8578 | schema_name	table_name	index_name	index_type	is_unique	is_primary_key	is_unique_constraint	has_filter	filter_definition	key_columns	included_columns |
+| check_constraints.tsv | 64 | schema_name	table_name	check_constraint_name	definition	is_disabled	is_not_trusted |
+
+## Coverage summary
+
+| Area | Rows or count | Notes |
+| --- | --- | --- |
+| Schemas | 28 | Schema names and owners |
+| Known tables from provided exports | 4342 | Derived from primary keys, foreign keys, indexes, and constraints |
+| Primary key constraints | 4285 | 4283 tables with primary key rows |
+| Foreign key relationships | 5069 | 2465 parent tables, 1404 referenced tables |
+| Indexes | 8578 | 4340 tables with index rows |
+| Check constraints | 64 | 49 tables with check constraints |
+
+## Schemas
+
+| Schema | Owner |
+| --- | --- |
+| ASCLOUD\A711233 | ASCLOUD\A711233 |
+| aspnet_ChangeNotification_ReceiveNotificationsOnlyAccess | aspnet_ChangeNotification_ReceiveNotificationsOnlyAccess |
+| bd50e95f_CC | bd50e95f_CC |
+| bd51e8ab_CC | bd51e8ab_CC |
+| bd51e8ab_EDI | bd51e8ab_EDI |
+| bd5b0e62_CC | bd5b0e62_CC |
+| bd5b0e62_EDI | bd5b0e62_EDI |
+| c27b8079_CC | c27b8079_CC |
+| c27b8079_EDI | c27b8079_EDI |
+| c656f0e5_CC | c656f0e5_CC |
+| c656f0e5_EDI | c656f0e5_EDI |
+| c880a6d7_CC | c880a6d7_CC |
+| c880a6d7_EDI | c880a6d7_EDI |
+| cdc | cdc |
+| cde91d87_CC | cde91d87_CC |
+| cde91d87_EDI | cde91d87_EDI |
+| dbo | dbo |
+| HVCUser | HVCUser |
+| persistenceUsers | persistenceUsers |
+| prime\asprod22 | dbo |
+| PRIME\lmenari1 | dbo |
+| PRIME\suppor3 | dbo |
+| state_persistence_users | state_persistence_users |
+| System.Activities.DurableInstancing | HVCUser |
+| TCR\PrdScmServices | TCR\PrdScmServices |
+| tracking_profilereaderwriter | tracking_profilereaderwriter |
+| tracking_reader | tracking_reader |
+| tracking_writer | tracking_writer |
+
+## Constraint and relationship signals
+
+| Signal | Count | Meaning |
+| --- | --- | --- |
+| Composite primary keys | 429 | Primary keys with more than one key column |
+| Disabled foreign keys | 699 | Foreign keys currently disabled |
+| Untrusted foreign keys | 733 | Foreign keys SQL Server cannot assume are trusted |
+| Cascade delete foreign keys | 316 | Relationships that cascade deletes |
+| Unique indexes | 5606 | Includes primary key and unique indexes |
+| Primary key indexes | 4283 | Indexes backing primary keys |
+| Filtered indexes | 32 | Indexes with filter predicates |
+| Disabled check constraints | 0 | Check constraints currently disabled |
+| Untrusted check constraints | 4 | Check constraints SQL Server cannot assume are trusted |
+
+## Index types
+
+| Index type | Count |
+| --- | --- |
+| CLUSTERED | 4285 |
+| CLUSTERED COLUMNSTORE | 1 |
+| NONCLUSTERED | 4279 |
+| NONCLUSTERED COLUMNSTORE | 8 |
+| XML | 5 |
+
+## Most referenced tables by foreign keys
+
+| Referenced table | Foreign key count |
+| --- | --- |
+| dbo.CV3Client | 146 |
+| dbo.CV3ClientVisit | 146 |
+| dbo.CV3User | 140 |
+| dbo.SXARCMTransactionCodeMaster | 128 |
+| dbo.CV3Location | 98 |
+| dbo.SXARCMWorksheet | 50 |
+| dbo.CV3CareProvider | 47 |
+| dbo.SXARCMTransaction | 44 |
+| dbo.CV3Order | 40 |
+| dbo.CV3Chart | 36 |
+| dbo.CV3PatientCareDocument | 35 |
+| dbo.CV3Rights | 34 |
+| dbo.SXARCMEDIVisitInfo | 31 |
+| dbo.SXASRGCase | 30 |
+| dbo.SXACRCatalogTile | 29 |
+
+## Tables with the most outgoing foreign keys
+
+| Parent table | Foreign key count |
+| --- | --- |
+| dbo.SXARCMRevenueCycleDetail | 33 |
+| dbo.SXARCMDenial | 22 |
+| dbo.CV3Order | 18 |
+| dbo.SXACCFutureOrder | 18 |
+| dbo.SXAGNTaskItem | 17 |
+| dbo.SXAGNTaskItemCompleted | 17 |
+| dbo.SXAAMREFIncomingReferral | 14 |
+| dbo.SXARCMPatientGuarantorRemitLocationConfig | 14 |
+| dbo.SXARCMPaymentAdjustmentTransactionDetail | 14 |
+| dbo.CV3OrderTaskOccurrence | 13 |
+| dbo.SXARCMLockboxProcessingTransactionCodeSetup | 13 |
+| dbo.SXARCMWorksheet | 12 |
+| dbo.SXAAMBClientPrescription | 11 |
+| dbo.SXARCMEpisode | 11 |
+| dbo.SXARCMERATransactionSetErrorLog | 11 |
+
+## Tables with the most indexes
+
+| Table | Index count |
+| --- | --- |
+| dbo.CV3ClientVisit | 16 |
+| dbo.SXARCMWorksheet | 14 |
+| dbo.CV3AdvancedVisitListData | 13 |
+| dbo.SXAESAppointment | 11 |
+| dbo.SXARCMTransaction | 11 |
+| dbo.SXASRGCase | 11 |
+| dbo.CV3ActiveVisitList | 10 |
+| dbo.CV3ObservationEntryItem | 10 |
+| dbo.SXAAMBClientPrescription | 10 |
+| dbo.SXARCMEpisode | 10 |
+| dbo.SXARCMPaymentAdjustmentTransactionDetail | 10 |
+| dbo.CV3User | 9 |
+| dbo.SXAAMREFIncomingReferral | 9 |
+| dbo.SXARCMWorksheetTransactionAllocation | 9 |
+| dbo.SXAVWFTask | 9 |
+| dbo.SXAVWFTaskARC | 9 |
+| dbo.CV3Location | 8 |
+| dbo.SXAAMFreeTextCareProvider | 8 |
+| dbo.SXARCMWorksheetTransferTransaction | 8 |
+| dbo.SXAVWFTaskHistory | 8 |
+
+## Check constraints by table
+
+| Table | Check constraint count |
+| --- | --- |
+| dbo.ACS_EMCalcRule | 5 |
+| dbo.ACS_EMCategory | 2 |
+| dbo.ACS_EmChargeRule | 2 |
+| dbo.ACS_EMComponentMapping | 2 |
+| dbo.ACS_EMProfessionalGroup | 2 |
+| dbo.ACS_EMProfessionalGroupObs | 2 |
+| dbo.CV3ClientDocumentARC | 2 |
+| dbo.CV3ClientDocumentCUR | 2 |
+| dbo.SXAEISExpressionComponent | 2 |
+| dbo.SXAEISRelationshipDefinition | 2 |
+| dbo.SXAEISTemplateExpressionComponent | 2 |
+| dbo.SXARCMThirdPartyCode | 2 |
+| dbo.CV3ClientDocDetailARC | 1 |
+| dbo.CV3ClientDocDetailCUR | 1 |
+| dbo.CV3ClientDocDetailHistXrefARC | 1 |
+| dbo.CV3ClientDocDetailHistXrefCUR | 1 |
+| dbo.CV3ClientDocHistoryARC | 1 |
+| dbo.CV3ClientDocHistoryCUR | 1 |
+| dbo.CV3ClientDocProviderXrefARC | 1 |
+| dbo.CV3ClientDocProviderXrefCUR | 1 |
+| dbo.CV3ClientVisit | 1 |
+| dbo.CV3ObservationARC | 1 |
+| dbo.CV3ObservationCUR | 1 |
+| dbo.CV3ObservationDocumentARC | 1 |
+| dbo.CV3ObservationDocumentCUR | 1 |
+| dbo.CV3ObservationXInfoARC | 1 |
+| dbo.CV3ObservationXInfoCUR | 1 |
+| dbo.SXACDChartedFormDecorativeLabelARC | 1 |
+| dbo.SXACDChartedFormDecorativeLabelCUR | 1 |
+| dbo.SXACDClientDocDetailTextARC | 1 |
+| dbo.SXACDClientDocDetailTextCUR | 1 |
+| dbo.SXAEHIFullDBRequest | 1 |
+| dbo.SXAEHIRequest | 1 |
+| dbo.SXAEISAttributeDefinition | 1 |
+| dbo.SXAEISAttributeExpression | 1 |
+| dbo.SXAEISDataModel | 1 |
+| dbo.SXAEISEntityDefinition | 1 |
+| dbo.SXAEISEntityUniquenessConstraintXref | 1 |
+| dbo.SXAEISExpressionFunctionArgument | 1 |
+| dbo.SXAEISExpressionImplementationType | 1 |
+| dbo.SXAEISInstanceSet | 1 |
+| dbo.SXAEISQueryDefinition | 1 |
+| dbo.SXAEISQueryExecution | 1 |
+| dbo.SXAEISQuerySchema | 1 |
+| dbo.SXAEISRequestExecution | 1 |
+| dbo.SXAEISSchemaDefinition | 1 |
+| dbo.SXAEISSchemaEntity | 1 |
+| dbo.SXAEISSelectionExpression | 1 |
+| dbo.SXARCMEReimbursementMethodDetail | 1 |
+
+## Check constraint details
+
+| Schema | Table | Constraint | Definition | Disabled | Not trusted |
+| --- | --- | --- | --- | --- | --- |
+| dbo | ACS_EMCalcRule | CHK1ACS_EMCalcRule | ([applyWhenAdministered]='N' OR [applyWhenAdministered]='Y') | 0 | 0 |
+| dbo | ACS_EMCalcRule | CHK2ACS_EMCalcRule | ([allowMultiples]='N' OR [allowMultiples]='Y') | 0 | 0 |
+| dbo | ACS_EMCalcRule | CHK4ACS_EMCalcRule | ([active]='N' OR [active]='Y') | 0 | 0 |
+| dbo | ACS_EMCalcRule | CHK5ACS_EMCalcRule | ([locked]='N' OR [locked]='Y') | 0 | 0 |
+| dbo | ACS_EMCalcRule | CHKACS_EMCalcRule_DeptType | ([DeptType]='B' OR [DeptType]='A') | 0 | 0 |
+| dbo | ACS_EMCategory | CHK2ACS_EMCategory | ([active]='N' OR [active]='Y') | 0 | 0 |
+| dbo | ACS_EMCategory | CHK3ACS_EMCategory | ([locked]='N' OR [locked]='Y') | 0 | 0 |
+| dbo | ACS_EmChargeRule | CHKACS_EmChargeRule_Temp_active | ([active]='N' OR [active]='Y') | 0 | 0 |
+| dbo | ACS_EmChargeRule | CHKACS_EmChargeRule_Temp_DeptType | ([DeptType]='Z' OR [DeptType]='B' OR [DeptType]='A') | 0 | 0 |
+| dbo | ACS_EMComponentMapping | CHK2ACS_EMComponentMapping | ([active]='N' OR [active]='Y') | 0 | 0 |
+| dbo | ACS_EMComponentMapping | CHK3ACS_EMComponentMapping | ([locked]='N' OR [locked]='Y') | 0 | 0 |
+| dbo | ACS_EMProfessionalGroup | CHK2ACS_EMProfessionalGroup | ([active]='N' OR [active]='Y') | 0 | 0 |
+| dbo | ACS_EMProfessionalGroup | CHK3ACS_EMProfessionalGroup | ([locked]='N' OR [locked]='Y') | 0 | 0 |
+| dbo | ACS_EMProfessionalGroupObs | CHK2ACS_EMProfessionalGroupObs | ([active]='N' OR [active]='Y') | 0 | 0 |
+| dbo | ACS_EMProfessionalGroupObs | CHK3ACS_EMProfessionalGroupObs | ([locked]='N' OR [locked]='Y') | 0 | 0 |
+| dbo | CV3ClientDocDetailARC | CV3ClientDocDetailARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | CV3ClientDocDetailCUR | CV3ClientDocDetailCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | CV3ClientDocDetailHistXrefARC | CV3ClientDocDetailHistXrefARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | CV3ClientDocDetailHistXrefCUR | CV3ClientDocDetailHistXrefCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | CV3ClientDocHistoryARC | CV3ClientDocHistoryARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | CV3ClientDocHistoryCUR | CV3ClientDocHistoryCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | CV3ClientDocProviderXrefARC | CV3ClientDocProviderXrefARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | CV3ClientDocProviderXrefCUR | CV3ClientDocProviderXrefCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | CV3ClientDocumentARC | CV3ClientDocumentARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | CV3ClientDocumentARC | CV3ClientDocumentARC_ServiceDtmUTCCHK | ([ServiceDtmUTC] IS NOT NULL) | 0 | 1 |
+| dbo | CV3ClientDocumentCUR | CV3ClientDocumentCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | CV3ClientDocumentCUR | CV3ClientDocumentCUR_ServiceDtmUTCCHK | ([ServiceDtmUTC] IS NOT NULL) | 0 | 1 |
+| dbo | CV3ClientVisit | CV3ClientVisit_ArcTypeCHK | ([ArcType] IS NOT NULL) | 0 | 1 |
+| dbo | CV3ObservationARC | CV3ObservationARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | CV3ObservationCUR | CV3ObservationCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | CV3ObservationDocumentARC | CV3ObservationDocumentARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | CV3ObservationDocumentCUR | CV3ObservationDocumentCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | CV3ObservationXInfoARC | CV3ObservationXInfoARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | CV3ObservationXInfoCUR | CV3ObservationXInfoCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | SXACDChartedFormDecorativeLabelARC | SXACDChartedFormDecorativeLabelARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | SXACDChartedFormDecorativeLabelCUR | SXACDChartedFormDecorativeLabelCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | SXACDClientDocDetailTextARC | SXACDClientDocDetailTextARC_ArcTypeCHK | ([ArcType]>(0)) | 0 | 0 |
+| dbo | SXACDClientDocDetailTextCUR | SXACDClientDocDetailTextCUR_ArcTypeCHK | ([ArcType]=(0)) | 0 | 0 |
+| dbo | SXAEHIFullDBRequest | SXAEHIFullDBRequest_NetworkPathCHK | (right([NetworkPath],(1))<>'\') | 0 | 0 |
+| dbo | SXAEHIRequest | SXAEHIRequest_NetworkPathCHK | (right([NetworkPath],(1))<>'\') | 0 | 0 |
+| dbo | SXAEISAttributeDefinition | SXAEISAttributeDefinition_ImplementationCategoryCHK | ([ImplementationCategory]='EIS' OR [ImplementationCategory]='OPTL' OR [ImplementationCategory]='CORE') | 0 | 0 |
+| dbo | SXAEISAttributeExpression | SXAEISAttributeExpression_ExpressionUsageTypeCHK | ([ExpressionUsageType]='VLDT' OR [ExpressionUsageType]='DFTV' OR [ExpressionUsageType]='CLCV') | 0 | 0 |
+| dbo | SXAEISDataModel | SXAEISDataModel_UsageTypeCHK | ([UsageType]='DVLP' OR [UsageType]='BASE' OR [UsageType]='BILD') | 0 | 0 |
+| dbo | SXAEISEntityDefinition | SXAEISEntityDefinition_ImplementationCategoryCHK | ([ImplementationCategory]='OPTL' OR [ImplementationCategory]='CORE') | 0 | 0 |
+| dbo | SXAEISEntityUniquenessConstraintXref | SXAEISEntityUniquenessConstraintXref_ConstraintTypeCHK | ([ConstraintType]='URQ' OR [ConstraintType]='UCQ') | 0 | 0 |
+| dbo | SXAEISExpressionComponent | SXAEISExpressionComponent_BindingRuleCHK | ([BindingRule]='NONE' OR [BindingRule]='EXEC' OR [BindingRule]='OVRD' OR [BindingRule]='DEFN') | 0 | 0 |
+| dbo | SXAEISExpressionComponent | SXAEISExpressionComponent_DataSourceTypeCHK | ([DataSourceType]='NONE' OR [DataSourceType]='SELF' OR [DataSourceType]='QRST' OR [DataSourceType]='INDAT' OR [DataSourceType]='SARG' OR [DataSourceType]='DBMS' OR [DataSourceType]='XPRS') | 0 | 0 |
+| dbo | SXAEISExpressionFunctionArgument | SXAEISExpressionFunctionArgument_DirectionCHK | ([Direction]='OUT' OR [Direction]='IN') | 0 | 0 |
+| dbo | SXAEISExpressionImplementationType | SXAEISExpressionImplementationType_ImplementationTypeNameCHK | ([ImplementationTypeName]='DBCDFT' OR [ImplementationTypeName]='DBPROC' OR [ImplementationTypeName]='EIS') | 0 | 0 |
+| dbo | SXAEISInstanceSet | SXAEISInstanceSet_InstanceTypeCHK | ([InstanceType]='SRV' OR [InstanceType]='MGD' OR [InstanceType]='HIS' OR [InstanceType]='CUR') | 0 | 0 |
+| dbo | SXAEISQueryDefinition | SXAEISQueryDefinition_ResultSetTypeCHK | ([ResultSetType]='SCMA' OR [ResultSetType]='ALDT' OR [ResultSetType]='IDRF' OR [ResultSetType]='ALL') | 0 | 0 |
+| dbo | SXAEISQueryExecution | SXAEISQueryExecution_ExecutionUnitTypeCHK | ([ExecutionUnitType]='SRCHGRP' OR [ExecutionUnitType]='URQGRP' OR [ExecutionUnitType]='UCQGRP' OR [ExecutionUnitType]='QRY') | 0 | 0 |
+| dbo | SXAEISQuerySchema | SXAEISQuerySchema_SchemaUsageTypeCHK | ([SchemaUsageType]='SRCHARG' OR [SchemaUsageType]='DBUPDT' OR [SchemaUsageType]='RSLTSET') | 0 | 0 |
+| dbo | SXAEISRelationshipDefinition | SXAEISRelationshipDefinition_ActionOnDeleteCHK | ([ActionOnDelete]='CASCADE' OR [ActionOnDelete]='NOACTION') | 0 | 0 |
+| dbo | SXAEISRelationshipDefinition | SXAEISRelationshipDefinition_ActionOnUpdateCHK | ([ActionOnUpdate]='CASCADE' OR [ActionOnUpdate]='NOACTION') | 0 | 0 |
+| dbo | SXAEISRequestExecution | SXAEISRequestExecution_EventTypeCHK | ([EventType]='RQALL' OR [EventType]='RQABT' OR [EventType]='RQEND' OR [EventType]='RQST' OR [EventType]='SECURITY' OR [EventType]='ERROR' OR [EventType]='INFO') | 0 | 0 |
+| dbo | SXAEISSchemaDefinition | SXAEISSchemaDefinition_SchemaTypeCHK | ([SchemaType]='CUST' OR [SchemaType]='LGDM' OR [SchemaType]='ENTY' OR [SchemaType]='DMDL') | 0 | 0 |
+| dbo | SXAEISSchemaEntity | SXAEISSchemaEntity_AttributeCollectionTypeCHK | ([AttributeCollectionType]='SCMA' OR [AttributeCollectionType]='ALDT' OR [AttributeCollectionType]='IDRF' OR [AttributeCollectionType]='ALL') | 0 | 0 |
+| dbo | SXAEISSelectionExpression | SXAEISSelectionExpression_BuildOptionCHK | ([BuildOption]='DFLT' OR [BuildOption]='CMD' OR [BuildOption]='EXPR') | 0 | 0 |
+| dbo | SXAEISTemplateExpressionComponent | SXAEISTemplateExpressionComponent_BindingRuleCHK | ([BindingRule]='NONE' OR [BindingRule]='EXEC' OR [BindingRule]='OVRD' OR [BindingRule]='DEFN') | 0 | 0 |
+| dbo | SXAEISTemplateExpressionComponent | SXAEISTemplateExpressionComponent_DataSourceTypeCHK | ([DataSourceType]='NONE' OR [DataSourceType]='SELF' OR [DataSourceType]='QRST' OR [DataSourceType]='INDAT' OR [DataSourceType]='SARG' OR [DataSourceType]='DBMS' OR [DataSourceType]='XPRS') | 0 | 0 |
+| dbo | SXARCMEReimbursementMethodDetail | SXARCMEReimbursementMethodDetailCHK | ([MethodVersionID] IS NOT NULL AND [StopLossID] IS NULL AND [ERExceptionID] IS NULL OR [MethodVersionID] IS NULL AND [StopLossID] IS NOT NULL AND [ERExceptionID] IS NULL OR [MethodVersionID] IS NULL AND [StopLossID] IS NULL AND [ERExceptionID] IS NOT NULL OR [MethodVersionID] IS NULL AND [StopLossID] IS NULL AND [ERExceptionID] IS NULL) | 0 | 1 |
+| dbo | SXARCMThirdPartyCode | SXARCMThirdPartyCodeProviderIDCHK | ([ThirdPartyCodeTypeID]<>(7) OR len([ProviderID])=(8)) | 0 | 0 |
+| dbo | SXARCMThirdPartyCode | SXARCMThirdPartyCodeProviderNPICHK | ([ThirdPartyCodeTypeID]<>(7) OR len([ProviderNPI])=(10)) | 0 | 0 |
+
+## Remaining discovery exports needed
+
+The uploaded results do not include the table/view inventory, column inventory, or routine/dependency exports from `sql/sqlserver/schema_inventory.sql`. Add these exports next to complete table-level documentation:
+
+- `tables_views.tsv`
+- `columns.tsv`
+- `routines.tsv`
+- `routine_dependencies.tsv`
+
+Once those are available, use [`schema-document-template.md`](schema-document-template.md) to document each table's purpose, columns, joins, indexes, and stored procedure design notes.

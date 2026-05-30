@@ -1,0 +1,2 @@
+database_name	compatibility_level	collation_name	recovery_model_desc	create_date
+TCR1	160	SQL_Latin1_General_CP1_CI_AS	FULL	2026-04-06 12:05:25.550

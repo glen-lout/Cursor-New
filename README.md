@@ -7,3 +7,4 @@ This repository contains documentation and SQL assets for discovering and docume
 - Start with the [schema discovery guide](docs/sql-schema-discovery.md).
 - Run the SQL Server inventory script in [`sql/sqlserver/schema_inventory.sql`](sql/sqlserver/schema_inventory.sql) against the target database.
 - Use the [schema documentation template](docs/schema-document-template.md) to document tables, columns, keys, relationships, indexes, and existing stored procedures before designing new database logic.
+- Review the uploaded `TCR1` discovery results in [`docs/tcr1-schema-results-summary.md`](docs/tcr1-schema-results-summary.md), with raw exports in [`docs/schema-results/`](docs/schema-results/).
